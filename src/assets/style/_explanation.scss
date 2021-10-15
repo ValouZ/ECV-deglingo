@@ -1,0 +1,31 @@
+.explanation {
+  @include flex($dir: column, $jc: flex-start);
+  height: 100vh;
+  padding: 80px $horizontalPadding 0;
+  margin-bottom: $bottomSectionSpace;
+  background: $terracotta;
+  overflow: hidden;
+
+  &__description {
+    @include flex($dir: column, $jc: flex-start);
+    color: $white;
+    text-align: center;
+
+    h1 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 36px;
+      margin-bottom: 14px;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 25px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__phone {
+    margin-top: 80px;
+  }
+}

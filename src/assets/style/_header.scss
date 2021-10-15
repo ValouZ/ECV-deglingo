@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 24px;
+  background: $white;
+
+  &__burger {
+    position: relative;
+    width: 24px;
+    height: 3px;
+    background: $black;
+
+    &::after{
+      position: absolute;
+      content: '';
+      height: inherit;
+      width: inherit;
+      background: inherit;
+      top: 10px;
+    
+    }
+    &::before{
+      position: absolute;
+      content: '';
+      height: inherit;
+      width: inherit;
+      background: inherit;
+      top: -10px;
+    }
+  }
+}

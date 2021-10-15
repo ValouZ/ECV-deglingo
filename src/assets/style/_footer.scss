@@ -1,0 +1,32 @@
+.footer {
+  @include flex($dir: column, $jc: unset);
+  background: $smooth-black;
+  padding: 64px $horizontalPadding 32px;
+
+  & &__list {
+    @include flex($dir: column);
+    gap: 32px;
+    color: $white;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 32px 0 40px;
+  }
+
+  & &__info {
+    @include flex($dir: column, $jc: unset);
+    gap: 3px;
+    color: $white;
+    opacity: 0.5;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+
+    h3 {
+      font-weight: 700;
+    }
+
+    p {
+      font-weight: 400;
+    }
+  }
+}
