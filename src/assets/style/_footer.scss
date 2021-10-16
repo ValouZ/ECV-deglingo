@@ -10,23 +10,67 @@
     text-transform: uppercase;
     text-align: center;
     margin: 32px 0 40px;
+
+    li {
+      a {
+        padding: 0 10px;
+        transition: 0.1s;
+
+        &:hover {
+          color: $terracotta;
+        }
+      }
+    }
   }
 
   & &__info {
     @include flex($dir: column, $jc: unset);
-    gap: 3px;
-    color: $white;
-    opacity: 0.5;
-    font-size: 16px;
-    line-height: 26px;
-    text-align: center;
+    row-gap: 40px;
+    margin-bottom: 40px;
 
-    h3 {
-      font-weight: 700;
+    li {
+      @include flex($dir: column, $jc: unset);
+      gap: 3px;
+      color: $white;
+      opacity: 0.5;
+      font-size: 16px;
+      line-height: 26px;
+      text-align: center;
+
+      h3 {
+        text-transform: capitalize;
+        font-weight: 700;
+      }
+
+      p {
+        font-weight: 400;
+      }
+    }
+  }
+
+  & &__links {
+    @include flex($jc: space-between);
+
+    li,
+    a {
+      // Eviter des espaces étrange
+      @include flex();
     }
 
-    p {
-      font-weight: 400;
+    a {
+      padding: 0 8px;
+    }
+    // width: 174px;
+
+    img {
+      opacity: 0.8;
+      transition: 0.1s;
+    }
+
+    li:hover {
+      img {
+        opacity: 1;
+      }
     }
   }
 }

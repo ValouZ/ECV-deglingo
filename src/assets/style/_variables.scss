@@ -5,3 +5,13 @@ $terracotta: #e7816b;
 
 $horizontalPadding: 24px;
 $bottomSectionSpace: 120px;
+
+
+%burgerPseudoElem {
+  position: absolute;
+  content: "";
+  height: inherit;
+  width: inherit;
+  background: inherit;
+  transition: inherit;
+}
