@@ -2,6 +2,7 @@
   @include flex($jc: space-between);
   padding: 36px 24px;
   background: $white;
+  // overflow-x: hidden;
 
   &__mobile-nav {
     @include flex();
@@ -62,7 +63,6 @@
     }
 
     nav {
-      display: flex;
       transform: translateX(100%);
       position: absolute;
       top: 53px;
