@@ -1,7 +1,20 @@
 .footer {
+  position: relative;
   @include flex($dir: column, $jc: unset);
   background: $smooth-black;
   padding: 64px $horizontalPadding 32px;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -300px;
+    left: 0;
+    z-index: -1;
+    background: inherit;
+    height: 300px;
+    width: 100%;
+  }
 
   & &__list {
     @include flex($dir: column);
