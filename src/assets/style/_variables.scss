@@ -6,6 +6,14 @@ $terracotta: #e7816b;
 $horizontalPadding: 24px;
 $bottomSectionSpace: 120px;
 
+:root{
+  --horizontalPadding: 24px;
+
+  @include desktop{
+    --horizontalPadding: 11.5%;
+  }
+}
+
 
 %burgerPseudoElem {
   position: absolute;

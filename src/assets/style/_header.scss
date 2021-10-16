@@ -1,14 +1,22 @@
 .header {
+  position: relative;
   @include flex($jc: space-between);
   padding: 36px 24px;
   background: $white;
-  // overflow-x: hidden;
+
+  @include desktop {
+    padding: 70px 0;
+  }
 
   &__mobile-nav {
     @include flex();
     width: 34px;
     height: 30px;
     cursor: pointer;
+
+    @include desktop {
+      height: 100%;
+    }
 
     &:hover {
       .header__burger {
@@ -38,6 +46,11 @@
     background: $black;
     transition: 0.2s;
 
+    @include desktop {
+      background: unset;
+      transition: unset;
+    }
+
     &::after {
       @extend %burgerPseudoElem;
       top: 8px;
@@ -63,14 +76,22 @@
     }
 
     nav {
-      transform: translateX(100%);
       position: absolute;
       top: 53px;
       right: -29px;
+      transform: translateX(100%);
       background: white;
       padding: 10px 20px;
       transition: 0.5s ease;
       border-radius: 0 0 0 8px;
+
+      @include desktop {
+        transition: unset;
+        top: 2px;
+        right: 0;
+        transform: translate(0, -50%);
+        padding: 0;
+      }
 
       ul {
         @include flex($dir: column, $ai: flex-start);
@@ -80,8 +101,16 @@
         letter-spacing: 2px;
         text-transform: uppercase;
 
+        @include desktop {
+          flex-direction: row;
+        }
+
         li {
           padding: 10px 0;
+
+          @include desktop {
+            padding: 0;
+          }
           &::selection {
             color: unset;
           }
@@ -89,8 +118,12 @@
           a {
             white-space: nowrap;
 
-            &:hover{
-              color: $terracotta;
+            @include desktop {
+              padding: 10px 20px;
+            }
+
+            &:hover {
+              text-decoration: underline;
             }
           }
         }

@@ -1,7 +1,25 @@
 .footer {
   @include flex($dir: column, $jc: unset);
   background: $smooth-black;
-  padding: 64px $horizontalPadding 32px;
+  padding: 64px var(--horizontalPadding) 32px;
+  width: 100vw;
+
+  @include tablet {
+    padding: 72px var(--horizontalPadding);
+  }
+
+  & &__main {
+    width: 100%;
+    margin-bottom: 40px;
+    @include tablet {
+      @include flex($dir: row, $jc: space-between);
+      padding-bottom: 40px;
+    }
+
+    .logo {
+      justify-content: flex-start;
+    }
+  }
 
   & &__list {
     @include flex($dir: column);
@@ -9,24 +27,44 @@
     color: $white;
     text-transform: uppercase;
     text-align: center;
-    margin: 32px 0 40px;
+    margin-top: 32px;
+
+    @include tablet {
+      flex-direction: row;
+      margin-top: 0;
+    }
 
     li {
       a {
         padding: 0 10px;
         transition: 0.1s;
+        white-space: nowrap;
 
         &:hover {
-          color: $terracotta;
+          text-decoration: underline;
         }
       }
+    }
+  }
+
+  & &__other {
+    @include tablet {
+      @include flex($jc: space-between, $ai: flex-end);
+      width: 100%;
     }
   }
 
   & &__info {
     @include flex($dir: column, $jc: unset);
     row-gap: 40px;
+    column-gap: 15%;
+    flex-grow: 1;
     margin-bottom: 40px;
+
+    @include tablet {
+      flex-direction: row;
+      margin-bottom: 0;
+    }
 
     li {
       @include flex($dir: column, $jc: unset);
@@ -36,6 +74,10 @@
       font-size: 16px;
       line-height: 26px;
       text-align: center;
+
+      @include tablet {
+        align-items: flex-start;
+      }
 
       h3 {
         text-transform: capitalize;

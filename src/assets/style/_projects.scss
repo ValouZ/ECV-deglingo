@@ -1,7 +1,17 @@
 .projects {
   @include flex($dir: column);
   gap: 24px;
-  margin: 0 $horizontalPadding $bottomSectionSpace;
+  margin: 0 var(--horizontalPadding) $bottomSectionSpace;
+
+  @include tablet {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  }
+
+  @include desktop {
+    margin: 0;
+    margin-bottom: 160px;
+  }
 
   & &__project {
     position: relative;
@@ -12,15 +22,38 @@
     color: $white;
     border-radius: 16px;
     overflow: hidden;
+    cursor: pointer;
+
+    @include tablet {
+      height: 100%;
+      &:nth-child(1) {
+        grid-row: span 2;
+      }
+    }
+
+    &:hover {
+      .projects__bg {
+        &::after {
+          background: rgba($color: $terracotta, $alpha: 0.8);
+        }
+      }
+    }
+
     h2 {
       margin-bottom: 12px;
       font-size: 28px;
       font-weight: 500;
       line-height: 36px;
-      letter-spacing: 1.399999976158142px;
+      letter-spacing: 1.4px;
       text-align: center;
       text-transform: uppercase;
       z-index: inherit;
+
+      @include tablet {
+        font-size: 40px;
+        line-height: 48px;
+        letter-spacing: 2px;
+      }
     }
   }
 
@@ -30,9 +63,23 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     z-index: 1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     // border-radius: 16px;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      transition: 0.1s linear;
+    }
   }
 
   & &__more {

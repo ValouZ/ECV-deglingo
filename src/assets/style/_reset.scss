@@ -2,11 +2,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Jost';
+  font-family: "Jost";
 }
 
-.overflow-mobile-hidden{
+.overflow-mobile-hidden {
+  @include flex($dir: column, $jc: unset, $ai: center);
   overflow: hidden;
+}
+
+.container {
+  @include flex($dir: column, $jc: unset, $ai: unset);
+  @include desktop {
+    padding: 0 var(--horizontalPadding);
+    box-sizing: unset;
+  }
 }
 
 a {
@@ -18,7 +27,7 @@ button {
   cursor: pointer;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
@@ -32,11 +41,11 @@ ul{
   letter-spacing: 8px;
   text-transform: uppercase;
 
-  &--white{
+  &--white {
     color: $white;
   }
 
-  &--center{
+  &--center {
     justify-content: center;
   }
 }
@@ -52,10 +61,37 @@ ul{
   letter-spacing: 1px;
   text-transform: uppercase;
   border: none;
+  transition: 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
 }
 
-.underline{
+.underline {
+  $border: 1px solid
+    rgba(
+      $color: $white,
+      $alpha: 0.1,
+    );
   padding-bottom: 32px;
-  border-bottom: 1px solid rgba($color: $white, $alpha: 0.1);
+  border-bottom: $border;
   width: 100%;
+
+  &--mobile {
+    @include tablet {
+      border-bottom: unset;
+      padding-bottom: 0;
+    }
+  }
+
+  &--tablet {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+    @include tablet {
+      border-bottom: $border;
+      padding-bottom: 32px;
+    }
+  }
 }
